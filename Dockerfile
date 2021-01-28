@@ -2,6 +2,8 @@
 FROM node:14 as build-deps
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
+COPY .env.example ./.env
+
 RUN yarn
 COPY . ./
 RUN yarn build
